@@ -39,11 +39,6 @@ async function getAccessToken() {
   return cachedToken;
 }
 
-
-getAccessToken().then(token => {
-  console.log("Access Token:", token);
-});
-
 app.get('/api/chapters', async (req, res) => {
   try {
     const token = await getAccessToken();

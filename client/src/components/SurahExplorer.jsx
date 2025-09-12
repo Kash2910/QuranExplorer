@@ -16,11 +16,11 @@ const SurahExplorer = () => {
   const [selectedSurah, setSelectedSurah] = useState(null);
   const [verses, setVerses] = useState([]);
   const [open, setOpen] = useState(false);
-
+const baseURL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
   useEffect(() => {
-    fetch("http://localhost:5000/api/chapters")
-      .then((res) => res.json()) // no JSON.parse here
-      .then((data) => setChapters(data.chapters)) // API wraps in { chapters: [...] }
+    fetch(`${baseURL}/api/chapters`)
+      .then((res) => res.json()) 
+      .then((data) => setChapters(data.chapters)) 
       .catch((err) => console.error("Error fetching chapters:", err));
   }, []);
 

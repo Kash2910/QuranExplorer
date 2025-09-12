@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { namesOfAllah } from '../namesOfAllah';
-import '../assets/LoadingScreen.css'; // for styling and fade effects
+import '../assets/LoadingScreen.css'; 
 
 function LoadingScreen({ onComplete }) {
   const [count, setCount] = useState(1);
@@ -15,11 +15,11 @@ function LoadingScreen({ onComplete }) {
           return next;
         } else {
           clearInterval(interval);
-          onComplete(); // trigger transition to landing
+          onComplete(); 
           return prev;
         }
       });
-    }, 50); // adjust speed as needed
+    }, 50);
     return () => clearInterval(interval);
   }, []);
 
