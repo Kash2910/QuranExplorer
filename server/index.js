@@ -39,6 +39,11 @@ async function getAccessToken() {
   return cachedToken;
 }
 
+
+app.get("/", (req, res) => {
+  res.send("✅ Quran Explorer Backend is running!");
+});
+
 app.get('/api/chapters', async (req, res) => {
   try {
     const token = await getAccessToken();
@@ -49,11 +54,11 @@ app.get('/api/chapters', async (req, res) => {
           'x-auth-token': token,
           'x-client-id': clientId,
         },
-        
       }
     );
     res.json(response.data);
   } catch (error) {
+    console.error("Error fetching chapters:", error.response?.data || error.message);
     res.status(500).json({ error: 'Failed to fetch chapters' });
   }
 });
@@ -72,6 +77,7 @@ app.get('/api/verses/:id', async (req, res) => {
     );
     res.json(response.data);
   } catch (error) {
+    console.error("Error fetching verses:", error.response?.data || error.message);
     res.status(500).json({ error: 'Failed to fetch verses' });
   }
 });
