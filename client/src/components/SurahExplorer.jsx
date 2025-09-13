@@ -16,13 +16,14 @@ const SurahExplorer = () => {
   const [selectedSurah, setSelectedSurah] = useState(null);
   const [verses, setVerses] = useState([]);
   const [open, setOpen] = useState(false);
-const baseURL = import.meta.env.VITE_API_URL || 'https://quranexplorer-be.onrender.com';
-console.log("Base URL:", baseURL);
+  const baseURL =
+    import.meta.env.VITE_API_URL || "https://quranexplorer-be.onrender.com";
+  console.log("Base URL:", baseURL);
 
   useEffect(() => {
     fetch(`${baseURL}/api/chapters`)
-      .then((res) => res.json()) 
-      .then((data) => setChapters(data.chapters)) 
+      .then((res) => res.json())
+      .then((data) => setChapters(data.chapters))
       .catch((err) => console.error("Error fetching chapters:", err));
   }, []);
 
@@ -39,7 +40,6 @@ console.log("Base URL:", baseURL);
     }
   };
   console.log("Base URL:", baseURL);
-
 
   return (
     <div className="relative w-full min-h-screen overflow-hidden">
@@ -58,48 +58,51 @@ console.log("Base URL:", baseURL);
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
             >
-              <Card className="w-80 bg-white shadow-lg rounded-2xl overflow-hidden">
-                <CardContent className="p-4 flex flex-col items-center">
-                  <img
-                    src={
-                      chapter.revelation_place === "madinah"
-                        ? "/Prophet-mosque.jpg"
-                        : "/Holy-Kaaba.jpg"
-                    }
-                    alt={chapter.revelation_place}
-                    className="w-16 h-16 object-cover mb-3 rounded-full border"
-                  />
-                  <h3 className="text-2xl font-semibold">
-                    {chapter.name_simple}
-                  </h3>
-                  <p className="text-4xl text-gray-500 italic">
-                    {chapter.name_arabic}
-                  </p>
-                  <p className="text-gray-600">
-                    🔢 Verses: {chapter.verses_count}
-                  </p>
-                  <p className="text-gray-600">
-                    📍 Place:{" "}
-                    {chapter.revelation_place.charAt(0).toUpperCase() +
-                      chapter.revelation_place.slice(1)}
-                  </p>
-                  <p className="text-gray-600">
-                    📜 Revelation Order: {chapter.revelation_order}
-                  </p>
-                  <p className="text-gray-600">
-                    📖 Pages: {chapter.pages[0]} - {chapter.pages[1]}
-                  </p>
-                  <p className="text-gray-700 font-medium mt-2">
-                    Translation: {chapter.translated_name?.name}
-                  </p>
-                  <Button
-                    className="mt-4"
-                    onClick={() => handleViewSurah(chapter)}
-                  >
-                    View Surah
-                  </Button>
-                </CardContent>
-              </Card>
+              {/* Neon border wrapper */}
+              <div className="relative group rounded-2xl p-[6px] bg-gradient-to-r from-purple-500 via-green-500 to-yellow-500 shadow-[0_0_20px_rgba(255,0,255,0.6)]">
+                <Card className="w-80 bg-white shadow-lg rounded-2xl overflow-hidden">
+                  <CardContent className="p-4 flex flex-col items-center">
+                    <img
+                      src={
+                        chapter.revelation_place === "madinah"
+                          ? "/Prophet-mosque.jpg"
+                          : "/Holy-Kaaba.jpg"
+                      }
+                      alt={chapter.revelation_place}
+                      className="w-16 h-16 object-cover mb-3 rounded-full border"
+                    />
+                    <h3 className="text-2xl font-semibold">
+                      {chapter.name_simple}
+                    </h3>
+                    <p className="text-4xl text-gray-500 italic">
+                      {chapter.name_arabic}
+                    </p>
+                    <p className="text-gray-600">
+                      🔢 Verses: {chapter.verses_count}
+                    </p>
+                    <p className="text-gray-600">
+                      📍 Place:{" "}
+                      {chapter.revelation_place.charAt(0).toUpperCase() +
+                        chapter.revelation_place.slice(1)}
+                    </p>
+                    <p className="text-gray-600">
+                      📜 Revelation Order: {chapter.revelation_order}
+                    </p>
+                    <p className="text-gray-600">
+                      📖 Pages: {chapter.pages[0]} - {chapter.pages[1]}
+                    </p>
+                    <p className="text-gray-700 font-medium mt-2">
+                      Translation: {chapter.translated_name?.name}
+                    </p>
+                    <Button
+                      className="mt-4"
+                      onClick={() => handleViewSurah(chapter)}
+                    >
+                      View Surah
+                    </Button>
+                  </CardContent>
+                </Card>
+              </div>
             </motion.div>
           ))}
         </div>

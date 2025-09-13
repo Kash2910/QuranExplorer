@@ -3,6 +3,7 @@ import Lenis from "@studio-freight/lenis";
 import HeroSection from "../components/HeroSection";
 import SurahExplorer from "../components/SurahExplorer";
 import Footer from "@/components/Footer";
+import QuranIntro from "@/components/QuranIntro";
 
 export default function LandingPage() {
   useEffect(() => {
@@ -20,17 +21,21 @@ export default function LandingPage() {
   }, []);
 
   return (
-    <main className="landing">
-      <section>
+   <main className="landing">
+      <section id="hero">
         <HeroSection />
       </section>
 
-      <section>
+      <section id="intro">
+        <QuranIntro />
+      </section>
+
+      <section id="explorer">
         <SurahExplorer />
       </section>
 
-      <section>
-        <Footer/>
+      <section id="footer">
+        <Footer />
       </section>
     </main>
   );

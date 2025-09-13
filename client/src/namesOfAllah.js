@@ -1,4 +1,4 @@
-export const namesOfAllah = [
+ const namesOfAllah = [
   "Ar-Rahman", "Ar-Rahim", "Al-Malik", "Al-Quddus", "As-Salam",
   "Al-Mu’min", "Al-Muhaymin", "Al-Aziz", "Al-Jabbar", "Al-Mutakabbir",
   "Al-Khaliq", "Al-Bari", "Al-Musawwir", "Al-Ghaffar", "Al-Qahhar",
@@ -20,3 +20,23 @@ export const namesOfAllah = [
   "Ad-Darr", "An-Nafi", "An-Nur", "Al-Hadi", "Al-Badi",
   "Al-Baqi", "Al-Warith", "Ar-Rashid", "As-Sabur"
 ];
+
+const cards = [
+    {
+      title: "What is the Qur’an?",
+      text: "The Qur’an is the final revelation from Allah, a timeless guide sent for all of humanity.",
+      icon: "📖",
+    },
+    {
+      title: "Guidance for Humanity",
+      text: "It teaches faith, morality, and purpose in life, helping us stay connected with Allah.",
+      icon: "👥",
+    },
+    {
+      title: "Virtues of Reciting",
+      text: "The Prophet ﷺ said: “The best among you are those who learn the Qur’an and teach it.” (Bukhari 5027)",
+      icon: "⭐",
+    },
+  ];
+
+  export { namesOfAllah, cards };
