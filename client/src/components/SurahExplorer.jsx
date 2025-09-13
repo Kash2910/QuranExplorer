@@ -29,7 +29,7 @@ const baseURL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
     setOpen(true);
 
     try {
-      const res = await fetch(`/api/verses/${chapter.id}`);
+      const res = await fetch(`${baseURL}/api/verses/${chapter.id}`);
       const data = await res.json();
       setVerses(data.verses || []);
     } catch (err) {
