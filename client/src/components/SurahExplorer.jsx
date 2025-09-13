@@ -16,7 +16,7 @@ const SurahExplorer = () => {
   const [selectedSurah, setSelectedSurah] = useState(null);
   const [verses, setVerses] = useState([]);
   const [open, setOpen] = useState(false);
-const baseURL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+const baseURL = import.meta.env.VITE_API_URL || 'https://quranexplorer-be.onrender.com';
 console.log("Base URL:", baseURL);
 
   useEffect(() => {
