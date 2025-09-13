@@ -17,6 +17,8 @@ const SurahExplorer = () => {
   const [verses, setVerses] = useState([]);
   const [open, setOpen] = useState(false);
 const baseURL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+console.log("Base URL:", baseURL);
+
   useEffect(() => {
     fetch(`${baseURL}/api/chapters`)
       .then((res) => res.json()) 
@@ -36,6 +38,8 @@ const baseURL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
       console.error("Error fetching verses:", err);
     }
   };
+  console.log("Base URL:", baseURL);
+
 
   return (
     <div className="relative w-full min-h-screen overflow-hidden">
