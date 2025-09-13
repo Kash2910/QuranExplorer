@@ -3,24 +3,21 @@ FROM node:22.12.0
 
 WORKDIR /app
 
-# Install dependencies first
+# Install dependencies
 COPY package*.json ./
 RUN npm install
-
-# Copy env file explicitly so Vite can read it
-COPY .env .env
 
 # Copy the rest of the source
 COPY . .
 
-# Build React app (Vite outputs dist/, CRA outputs build/)
+# Build React app
 RUN npm run build
 
 # Install serve globally
 RUN npm install -g serve
 
-# Use Render's assigned port (Render sets PORT env var)
+# Use Render’s assigned port
 EXPOSE 10000
 
-# Serve built app on Render's PORT
-CMD ["sh", "-c", "serve -s dist -l $PORT"]
+# Serve built app
+CMD ["serve", "-s", "dist", "-l", "10000"]
